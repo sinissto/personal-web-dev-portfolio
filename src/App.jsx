@@ -1,5 +1,7 @@
 import "./App.css";
 import Slider from "./components/Slider.jsx";
+import SideNav from "./components/SideNav.jsx";
+import ScrollIndicator from "./components/ScrollIndicator.jsx";
 
 function App() {
   return (
@@ -11,13 +13,13 @@ function App() {
           </div>
         </div>
 
-        <div className="c-homepage-slider__canvas">
-          CANVAS WITH VIDEO ELEMENT THAT ROTATE LIKE CAROUSEL
-        </div>
+        {/*<div className="c-homepage-slider__canvas">*/}
+        {/*  CANVAS WITH VIDEO ELEMENT THAT ROTATE LIKE CAROUSEL*/}
+        {/*</div>*/}
 
-        <div className="c-homepage-slider__pagination">SIDE NAV</div>
+        <SideNav />
 
-        <i className={"c-scroll-indicator"}>SCROLL INDICATOR</i>
+        <ScrollIndicator />
       </section>
     </div>
   );

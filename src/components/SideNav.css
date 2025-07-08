@@ -1,0 +1,16 @@
+.c-homepage-slider__pagination {
+  position: fixed;
+  left: 4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  padding-left: 2.2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.c-homepage-slider__pagination-progress {
+}
+
+.c-homepage-slider__pagination-progress-line {
+}

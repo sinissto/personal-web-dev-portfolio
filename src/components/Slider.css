@@ -1,0 +1,12 @@
+.c-homepage-slider .swiper {
+  width: 100%;
+  height: 100vh;
+}
+
+.c-home-slider-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}

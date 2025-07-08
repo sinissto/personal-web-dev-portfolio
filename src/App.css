@@ -27,10 +27,12 @@
 .c-homepage-slider__inner {
   position: relative;
   z-index: 2;
+  /*margin-top: 2rem;*/
+  /*padding: 2rem;*/
 }
 
 .o-container {
   width: 100%;
   padding: 0 4.2%;
-  background-color: lightblue;
+  /*background-color: lightblue;*/
 }

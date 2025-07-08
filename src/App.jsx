@@ -1,11 +1,14 @@
 import "./App.css";
+import Slider from "./components/Slider.jsx";
 
 function App() {
   return (
     <div className={"o-page__inner o-page__inner--home"}>
       <section className={"o-section c-homepage-slider"}>
         <div className={"c-homepage-slider__inner"}>
-          <div className="o-container"> SWIPER CONTAINER </div>
+          <div className="o-container">
+            <Slider />
+          </div>
         </div>
 
         <div className="c-homepage-slider__canvas">

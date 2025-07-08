@@ -26,4 +26,5 @@ body {
   background: #0d2936;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
+  font-size: 1.6rem;
 }

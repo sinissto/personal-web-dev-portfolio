@@ -1,0 +1,43 @@
+.c-scroll-indicator {
+  display: inline-block;
+  z-index: 5;
+  mix-blend-mode: difference;
+
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+}
+
+.c-scroll-indicator i {
+  display: block;
+  width: 2px;
+  height: 5rem;
+  position: relative;
+  overflow: hidden;
+  opacity: 1;
+}
+
+/*.c-scroll-indicator i:last-child:after {*/
+/*  animation-delay: 1.8s;*/
+/*}*/
+
+.c-scroll-indicator i:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  transform: translateY(-120%);
+
+  animation: scroll 1.5s infinite running ease-in;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateY(-120%);
+  }
+  to {
+    transform: translateY(105%);
+  }
+}

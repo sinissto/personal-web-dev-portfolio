@@ -1,5 +1,11 @@
+import "./ScrollIndicator.css";
+
 const ScrollIndicator = () => {
-  return <i className={"c-scroll-indicator"}>SCROLL INDICATOR</i>;
+  return (
+    <i className={"c-scroll-indicator"}>
+      <i></i>
+    </i>
+  );
 };
 
 export default ScrollIndicator;

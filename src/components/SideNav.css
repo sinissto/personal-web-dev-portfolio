@@ -10,7 +10,54 @@
 }
 
 .c-homepage-slider__pagination-progress {
+  position: absolute;
+  top: 2rem;
+  bottom: 2rem;
+  left: 0;
+  width: 2px;
+  background-color: rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  opacity: 1;
 }
 
 .c-homepage-slider__pagination-progress-line {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: #ffffff;
+  height: 25%;
+}
+
+.u-b3 {
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+  letter-spacing: 1.6px;
+}
+
+.u-fw-semi-bold {
+  font-weight: 600;
+}
+
+.u-uppercase {
+  text-transform: uppercase;
+}
+
+.c-homepage-slider__pagination-list ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.c-homepage-slider__pagination-list ul li {
+  color: rgba(255, 255, 255, 0.5);
+  padding: 5px 0;
+  cursor: pointer;
+  overflow: hidden;
+
+  transition: color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.c-homepage-slider__pagination-list ul li:hover {
+  color: #fff;
 }

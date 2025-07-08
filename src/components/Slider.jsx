@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Mousewheel, Navigation, Pagination } from "swiper/modules";
+import { Mousewheel } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 
@@ -14,7 +14,7 @@ const Slider = () => {
       direction={"vertical"}
       loop={true}
       freeMode={true}
-      modules={[Pagination, Mousewheel]}
+      modules={[Mousewheel]}
       mousewheel={true}
       // spaceBetween={30}
       slidesPerView={1}

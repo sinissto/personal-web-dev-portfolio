@@ -1,12 +1,36 @@
-#root {
-  max-width: 1280px;
-  min-height: 100vh;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/*#root {*/
+/*  max-width: 1280px;*/
+/*  min-height: 100vh;*/
+/*  margin: 0 auto;*/
+/*  padding: 2rem;*/
+/*  text-align: center;*/
+/*  overflow: hidden;*/
+/*}*/
+
+.o-page__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.o-page__inner--home {
+  z-index: auto;
+}
+
+.o-section {
+  color: #fff;
+}
+
+.c-homepage-slider {
   overflow: hidden;
 }
 
-p {
-  font-size: 1.6rem;
+.c-homepage-slider__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.o-container {
+  width: 100%;
+  padding: 0 4.2%;
+  background-color: lightblue;
 }

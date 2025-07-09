@@ -56,3 +56,123 @@
 .u-split-text-line {
   text-transform: none;
 }
+
+.c-home-slider-item__link {
+  text-decoration: none;
+}
+
+.c-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.c-button:before,
+.c-button:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+
+  transition: transform 0.25s 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  transform: scaleX(0);
+  z-index: 2;
+}
+
+.c-button:before {
+  transform-origin: left top;
+  left: 0;
+  right: auto;
+  top: 0;
+}
+
+.c-button:after {
+  transform-origin: right top;
+  left: auto;
+  right: 0;
+  bottom: 0;
+}
+
+.c-button__inner {
+  position: relative;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  min-height: 5rem;
+  min-width: 18rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  z-index: 1;
+}
+
+.c-button__label {
+  white-space: nowrap;
+  margin: 0 1rem;
+  line-height: 1.2;
+}
+
+.c-button__label:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+  background-color: #fff;
+  transition: transform 0.25s 0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.c-button__label-inner {
+  position: relative;
+  overflow: hidden;
+  color: transparent;
+  font-style: normal;
+}
+
+.c-button__label-inner:before {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  content: attr(title);
+  opacity: 1;
+  visibility: visible;
+  color: #ffffff;
+
+  transition: all 0.25s 0s ease-in-out;
+}
+
+.c-button__label-inner:after {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  content: attr(title);
+  transform: translateY(100%);
+  opacity: 0;
+  color: #ffffff;
+  visibility: hidden;
+
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}

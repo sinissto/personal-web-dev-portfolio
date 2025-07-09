@@ -21,7 +21,34 @@ const Slider = () => {
       pagination={{ clickable: true }}
     >
       <SwiperSlide className={"c-home-slider-item"}>
-        <div>Slide 1</div>
+        <div className={"c-home-slider-item__inner"}>
+          <div className={"c-home-slider-item__title u-a4 u-uppercase"}>
+            <div className="u-split-title-line">Nevera and Nevera R</div>
+          </div>
+
+          <div className={"c-home-slider-item__content u-b2"}>
+            <div className="u-split-text-line">
+              Capable of exceptional speeds, swift and powerful beyond
+              comprehension, Nevera is a force like no other. Designed,
+              engineered and handcrafted in Croatia, defined by function and
+              forged from a love for automotive.
+            </div>
+          </div>
+
+          <a
+            className="c-home-slider-item__link c-button c-button--light"
+            href="https://www.rimac-automobili.com/nevera/"
+            target=""
+          >
+            <span className="c-button__inner">
+              <span className="c-button__label">
+                <i className="c-button__label-inner" title="Discover">
+                  Discover
+                </i>
+              </span>
+            </span>
+          </a>
+        </div>
       </SwiperSlide>
       <SwiperSlide className={"c-home-slider-item"}>
         <div>Slide 2</div>

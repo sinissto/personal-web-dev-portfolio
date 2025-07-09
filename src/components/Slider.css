@@ -10,3 +10,49 @@
   flex-wrap: wrap;
   flex-direction: column;
 }
+
+.c-home-slider-item__inner {
+  max-width: 33.333%;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+.swiper-slide-active .c-home-slider-item__title {
+  opacity: 1;
+}
+
+.u-a4 {
+  font-weight: normal;
+  font-style: normal;
+  margin-bottom: 1.6rem;
+
+  line-height: calc(4vw + 8px);
+}
+
+.u-a4.u-uppercase {
+  letter-spacing: 0.18rem;
+}
+
+.u-split-title-line {
+  font-size: 5rem;
+  display: block;
+  position: relative;
+  transform: translate(0px, 0px);
+  opacity: 1;
+  visibility: inherit;
+}
+
+.c-home-slider-item__content {
+  margin-bottom: 3rem;
+  font-size: 1.4rem;
+}
+
+.u-b2 {
+  line-height: 2rem;
+}
+
+.u-split-text-line {
+  text-transform: none;
+}

@@ -49,6 +49,27 @@ const Slider = () => {
             </span>
           </a>
         </div>
+        {/*<div*/}
+        {/*  className="c-homepage-slider__video-wrapper-overlay"*/}
+        {/*  data-swiper-parallax-opacity="-1"*/}
+        {/*  style="transition-duration: 0ms; opacity: 1; transform: translate3d(0px, 0px, 0px);"*/}
+        {/*></div>*/}
+        <div className="c-homepage-slider__video-wrapper">
+          <video
+            data-index="1"
+            crossOrigin="anonymous"
+            loop={true}
+            playsInline="true"
+            preload="metadata"
+            poster="https://web-cdn.rimac-automobili.com/wp-content/uploads/2020/10/30151448/Tech_Loop_2_optimized.jpg"
+            className="c-homepage-slider__video"
+          >
+            <source
+              type="video/mp4"
+              src="https://web-cdn.rimac-automobili.com/wp-content/uploads/2020/10/30151451/Tech_Loop_2_optimized.mp4"
+            />
+          </video>
+        </div>
       </SwiperSlide>
       <SwiperSlide className={"c-home-slider-item"}>
         <div>Slide 2</div>

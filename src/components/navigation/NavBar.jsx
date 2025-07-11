@@ -1,6 +1,9 @@
 import "./NavBar.css";
+import { useState } from "react";
 
 const NavBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="o-navigation-wrapper js-navigation-wrapper is-light">
       <div className="o-container o-container--wide">
@@ -33,17 +36,15 @@ const NavBar = () => {
               </i>
             </a>
           </div>
-          <div className="c-navigation__center">
-            <div className="c-navigation__logo-wrapper">
-              <span className="c-logo c-logo--navigation js-page-logo-wrapper"></span>
-              <span className="u-b3 u-uppercase c-page-title">
-                <span className="js-page-title"></span>
-              </span>
-            </div>
-          </div>
-          <div className="c-navigation__right">
+
+          <div
+            className="c-navigation__right"
+            onClick={() => setIsOpen((isOpened) => !isOpened)}
+          >
             <span
-              className="c-hamburger js-navigation-trigger js-timeline-popup-close"
+              className={`c-hamburger js-navigation-trigger js-timeline-popup-close ${
+                isOpen && "is-opened"
+              }`}
               aria-label="Menu"
               aria-controls="navigation"
             >

@@ -1,3 +1,5 @@
+import "./Navigation.css";
+
 const Navigation = () => {
   return (
     <nav id="navigation" className="c-navigation-menu-wrapper">

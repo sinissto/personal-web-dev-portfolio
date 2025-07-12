@@ -3,11 +3,13 @@ import Slider from "./components/Slider.jsx";
 import SideNav from "./components/SideNav.jsx";
 import ScrollIndicator from "./components/ScrollIndicator.jsx";
 import NavBar from "./components/navigation/NavBar.jsx";
+import Navigation from "./components/navigation/Navigation.jsx";
 
 function App() {
   return (
     <>
       <NavBar />
+      <Navigation />
       <div className={"o-page__inner o-page__inner--home"}>
         <section className={"o-section c-homepage-slider"}>
           <div className={"c-homepage-slider__inner"}>

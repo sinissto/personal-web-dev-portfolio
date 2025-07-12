@@ -59,7 +59,7 @@ const Slider = () => {
             data-index="1"
             crossOrigin="anonymous"
             loop={true}
-            playsInline="true"
+            playsInline={true}
             preload="metadata"
             poster="https://web-cdn.rimac-automobili.com/wp-content/uploads/2020/10/30151448/Tech_Loop_2_optimized.jpg"
             className="c-homepage-slider__video"

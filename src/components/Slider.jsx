@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Mousewheel, Navigation, Pagination } from "swiper/modules";
+import { Mousewheel, Pagination } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 
@@ -7,13 +7,15 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./Slider.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import SideNav from "./SideNav.jsx";
 
 const Slider = ({ activeIndex, setActiveIndex }) => {
   console.log("Slider activeIndex:", activeIndex);
 
   const swiperRef = useRef(null);
+  const [rotationCount, setRotationCount] = useState(0);
+  const prevRealIndex = useRef(0);
 
   const goToSlide = (index) => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -21,20 +23,39 @@ const Slider = ({ activeIndex, setActiveIndex }) => {
     }
   };
 
+  const handleSlideChange = (swiper) => {
+    const current = swiper.realIndex;
+    const previous = prevRealIndex.current;
+    console.log("Slide changed from", previous, "to", current);
+
+    // Detect loop from last slide to first slide
+    if (previous === 2 && current === 0) {
+      console.log("Completed a full rotation, resetting...");
+      setRotationCount((count) => count + 1);
+
+      // Optionally: do something, like resetting a timer or animation
+    }
+
+    prevRealIndex.current = current;
+    setActiveIndex(prevRealIndex.current);
+  };
+
   return (
     <>
       <Swiper
         ref={swiperRef}
-        modules={[Mousewheel, Navigation, Pagination]}
+        modules={[Mousewheel, Pagination]}
         direction={"vertical"}
         loop={true}
         freeMode={true}
         mousewheel={true}
         // spaceBetween={30}
         slidesPerView={1}
-        navigation={true}
+        // navigation={true}
         pagination={false}
-        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+        onSlideChange={(swiper) => {
+          handleSlideChange(swiper);
+        }}
         onSwiper={(swiper) => {
           swiperRef.current.swiper = swiper;
           // Set initial active index

@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Mousewheel } from "swiper/modules";
+import { Mousewheel, Navigation, Pagination } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 
@@ -7,273 +7,299 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./Slider.css";
+import { useRef } from "react";
+import SideNav from "./SideNav.jsx";
 
-const Slider = () => {
+const Slider = ({ activeIndex, setActiveIndex }) => {
+  console.log("Slider activeIndex:", activeIndex);
+
+  const swiperRef = useRef(null);
+
+  const goToSlide = (index) => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideTo(index);
+    }
+  };
+
   return (
-    <Swiper
-      direction={"vertical"}
-      loop={true}
-      freeMode={true}
-      modules={[Mousewheel]}
-      mousewheel={true}
-      // spaceBetween={30}
-      slidesPerView={1}
-      pagination={{ clickable: true }}
-    >
-      <SwiperSlide className={"c-home-slider-item"}>
-        <div className={"c-home-slider-item__inner"}>
-          <div className={"c-home-slider-item__title u-a4 u-uppercase"}>
-            <div className="u-split-title-line">Nevera and Nevera R</div>
-          </div>
-
-          <div className={"c-home-slider-item__content u-b2"}>
-            <div className="u-split-text-line">
-              Capable of exceptional speeds, swift and powerful beyond
-              comprehension, Nevera is a force like no other. Designed,
-              engineered and handcrafted in Croatia, defined by function and
-              forged from a love for automotive.
+    <>
+      <Swiper
+        ref={swiperRef}
+        modules={[Mousewheel, Navigation, Pagination]}
+        direction={"vertical"}
+        loop={true}
+        freeMode={true}
+        mousewheel={true}
+        // spaceBetween={30}
+        slidesPerView={1}
+        navigation={true}
+        pagination={false}
+        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+        onSwiper={(swiper) => {
+          swiperRef.current.swiper = swiper;
+          // Set initial active index
+          if (activeIndex !== undefined) {
+            swiper.slideTo(activeIndex);
+          }
+        }}
+      >
+        <SwiperSlide className={"c-home-slider-item"}>
+          <div className={"c-home-slider-item__inner"}>
+            <div className={"c-home-slider-item__title u-a4 u-uppercase"}>
+              <div className="u-split-title-line">Nevera and Nevera R</div>
             </div>
-          </div>
 
-          <a
-            className="c-home-slider-item__link c-button c-button--light"
-            href="https://www.rimac-automobili.com/nevera/"
-            target=""
-          >
-            <span className="c-button__inner">
-              <span className="c-button__label">
-                <i className="c-button__label-inner" title="Discover">
-                  Discover
-                </i>
+            <div className={"c-home-slider-item__content u-b2"}>
+              <div className="u-split-text-line">
+                Capable of exceptional speeds, swift and powerful beyond
+                comprehension, Nevera is a force like no other. Designed,
+                engineered and handcrafted in Croatia, defined by function and
+                forged from a love for automotive.
+              </div>
+            </div>
+
+            <a
+              className="c-home-slider-item__link c-button c-button--light"
+              href="https://www.rimac-automobili.com/nevera/"
+              target=""
+            >
+              <span className="c-button__inner">
+                <span className="c-button__label">
+                  <i className="c-button__label-inner" title="Discover">
+                    Discover
+                  </i>
+                </span>
               </span>
-            </span>
-          </a>
-        </div>
-        {/*<div*/}
-        {/*  className="c-homepage-slider__video-wrapper-overlay"*/}
-        {/*  data-swiper-parallax-opacity="-1"*/}
-        {/*  style="transition-duration: 0ms; opacity: 1; transform: translate3d(0px, 0px, 0px);"*/}
-        {/*></div>*/}
-        <div className="c-homepage-slider__video-wrapper">
-          <video
-            data-index="1"
-            crossOrigin="anonymous"
-            loop={true}
-            playsInline={true}
-            preload="metadata"
-            poster="https://web-cdn.rimac-automobili.com/wp-content/uploads/2020/10/30151448/Tech_Loop_2_optimized.jpg"
-            className="c-homepage-slider__video"
-          >
-            <source
-              type="video/mp4"
-              src="https://web-cdn.rimac-automobili.com/wp-content/uploads/2020/10/30151451/Tech_Loop_2_optimized.mp4"
-            />
-          </video>
-        </div>
-      </SwiperSlide>
-
-      {/* Slide 2 */}
-
-      <SwiperSlide className={"c-home-slider-item"}>
-        <div
-          className="c-home-slider-item__inner"
-          data-swiper-parallax-opacity="-1"
-          style={{
-            transitionDuration: "0ms",
-            opacity: 1,
-            transform: "translate3d(0px, 0px, 0px)",
-          }}
-        >
-          <div
-            className="c-home-slider-item__title u-a4 u-uppercase js-onboarding-title"
-            style={{}}
-          >
-            <div
-              className="u-split-title-line"
-              style={{
-                display: "block",
-                position: "relative",
-                transform: "translate(0px, 0px)",
-                opacity: 1,
-                visibility: "inherit",
-              }}
-            >
-              Technology
-            </div>
+            </a>
           </div>
-          <div
-            className="c-home-slider-item__content u-b2 js-onboarding-text"
-            style={{}}
-          >
-            <div
-              className="u-split-text-line"
-              style={{
-                display: "block",
-                position: "relative",
-                transform: "translate(0px, 0px)",
-                opacity: 1,
-                visibility: "inherit",
-              }}
+          {/*<div*/}
+          {/*  className="c-homepage-slider__video-wrapper-overlay"*/}
+          {/*  data-swiper-parallax-opacity="-1"*/}
+          {/*  style="transition-duration: 0ms; opacity: 1; transform: translate3d(0px, 0px, 0px);"*/}
+          {/*></div>*/}
+          <div className="c-homepage-slider__video-wrapper">
+            <video
+              data-index="1"
+              crossOrigin="anonymous"
+              loop={true}
+              playsInline={true}
+              preload="metadata"
+              poster="https://web-cdn.rimac-automobili.com/wp-content/uploads/2020/10/30151448/Tech_Loop_2_optimized.jpg"
+              className="c-homepage-slider__video"
             >
-              From bespoke component design and engineering to full series
-              production. We are the leader in high-performance EV technology.
-            </div>
+              <source
+                type="video/mp4"
+                src="https://web-cdn.rimac-automobili.com/wp-content/uploads/2020/10/30151451/Tech_Loop_2_optimized.mp4"
+              />
+            </video>
           </div>
-          <a
-            className="c-home-slider-item__link c-button c-button--light"
-            href="https://www.rimac-technology.com/"
-            target="_blank"
+        </SwiperSlide>
+
+        {/* Slide 2 */}
+
+        <SwiperSlide className={"c-home-slider-item"}>
+          <div
+            className="c-home-slider-item__inner"
+            data-swiper-parallax-opacity="-1"
             style={{
-              transform: "translate(0px, 0px)",
+              transitionDuration: "0ms",
               opacity: 1,
-              visibility: "inherit",
+              transform: "translate3d(0px, 0px, 0px)",
             }}
           >
-            <span className="c-button__inner">
-              <span className="c-button__label">
-                <i className="c-button__label-inner" title="Explore">
-                  Explore
-                </i>
+            <div
+              className="c-home-slider-item__title u-a4 u-uppercase js-onboarding-title"
+              style={{}}
+            >
+              <div
+                className="u-split-title-line"
+                style={{
+                  display: "block",
+                  position: "relative",
+                  transform: "translate(0px, 0px)",
+                  opacity: 1,
+                  visibility: "inherit",
+                }}
+              >
+                Technology
+              </div>
+            </div>
+            <div
+              className="c-home-slider-item__content u-b2 js-onboarding-text"
+              style={{}}
+            >
+              <div
+                className="u-split-text-line"
+                style={{
+                  display: "block",
+                  position: "relative",
+                  transform: "translate(0px, 0px)",
+                  opacity: 1,
+                  visibility: "inherit",
+                }}
+              >
+                From bespoke component design and engineering to full series
+                production. We are the leader in high-performance EV technology.
+              </div>
+            </div>
+            <a
+              className="c-home-slider-item__link c-button c-button--light"
+              href="https://www.rimac-technology.com/"
+              target="_blank"
+              style={{
+                transform: "translate(0px, 0px)",
+                opacity: 1,
+                visibility: "inherit",
+              }}
+            >
+              <span className="c-button__inner">
+                <span className="c-button__label">
+                  <i className="c-button__label-inner" title="Explore">
+                    Explore
+                  </i>
+                </span>
               </span>
-            </span>
-          </a>
-        </div>
-      </SwiperSlide>
+            </a>
+          </div>
+        </SwiperSlide>
 
-      {/* Slide 3 */}
-      <SwiperSlide className={"c-home-slider-item"}>
-        <div
-          className="c-home-slider-item__inner"
-          data-swiper-parallax-opacity="-1"
-          style={{
-            transitionDuration: "0ms",
-            opacity: 1,
-            transform: "translate3d(0px, 0px, 0px)",
-          }}
-        >
+        {/* Slide 3 */}
+        <SwiperSlide className={"c-home-slider-item"}>
           <div
-            className="c-home-slider-item__title u-a4 u-uppercase js-onboarding-title"
-            style={{}}
-          >
-            <div
-              className="u-split-title-line"
-              style={{
-                display: "block",
-                position: "relative",
-                transform: "translate(0px, 0px)",
-                opacity: 1,
-                visibility: "inherit",
-              }}
-            >
-              Development
-            </div>
-          </div>
-          <div
-            className="c-home-slider-item__content u-b2 js-onboarding-text"
-            style={{}}
-          >
-            <div
-              className="u-split-text-line"
-              style={{
-                display: "block",
-                position: "relative",
-                transform: "translate(0px, 0px)",
-                opacity: 1,
-                visibility: "inherit",
-              }}
-            >
-              We are taking you behind the scenes of globally homologated
-              electric hypercar design, engineering and testing.
-            </div>
-          </div>
-          <a
-            className="c-home-slider-item__link c-button c-button--light"
-            href="https://www.rimac-automobili.com/development/"
-            target=""
+            className="c-home-slider-item__inner"
+            data-swiper-parallax-opacity="-1"
             style={{
-              transform: "translate(0px, 0px)",
+              transitionDuration: "0ms",
               opacity: 1,
-              visibility: "inherit",
+              transform: "translate3d(0px, 0px, 0px)",
             }}
           >
-            <span className="c-button__inner">
-              <span className="c-button__label">
-                <i className="c-button__label-inner" title="Discover">
-                  Discover
-                </i>
+            <div
+              className="c-home-slider-item__title u-a4 u-uppercase js-onboarding-title"
+              style={{}}
+            >
+              <div
+                className="u-split-title-line"
+                style={{
+                  display: "block",
+                  position: "relative",
+                  transform: "translate(0px, 0px)",
+                  opacity: 1,
+                  visibility: "inherit",
+                }}
+              >
+                Development
+              </div>
+            </div>
+            <div
+              className="c-home-slider-item__content u-b2 js-onboarding-text"
+              style={{}}
+            >
+              <div
+                className="u-split-text-line"
+                style={{
+                  display: "block",
+                  position: "relative",
+                  transform: "translate(0px, 0px)",
+                  opacity: 1,
+                  visibility: "inherit",
+                }}
+              >
+                We are taking you behind the scenes of globally homologated
+                electric hypercar design, engineering and testing.
+              </div>
+            </div>
+            <a
+              className="c-home-slider-item__link c-button c-button--light"
+              href="https://www.rimac-automobili.com/development/"
+              target=""
+              style={{
+                transform: "translate(0px, 0px)",
+                opacity: 1,
+                visibility: "inherit",
+              }}
+            >
+              <span className="c-button__inner">
+                <span className="c-button__label">
+                  <i className="c-button__label-inner" title="Discover">
+                    Discover
+                  </i>
+                </span>
               </span>
-            </span>
-          </a>
-        </div>
-      </SwiperSlide>
+            </a>
+          </div>
+        </SwiperSlide>
 
-      {/* Slide 4 */}
-      <SwiperSlide className={"c-home-slider-item"}>
-        <div
-          className="c-home-slider-item__inner"
-          data-swiper-parallax-opacity="-1"
-          style={{
-            transitionDuration: "0ms",
-            opacity: 1,
-            transform: "translate3d(0px, 0px, 0px)",
-          }}
-        >
+        {/* Slide 4 */}
+        <SwiperSlide className={"c-home-slider-item"}>
           <div
-            className="c-home-slider-item__title u-a4 u-uppercase js-onboarding-title"
-            style={{}}
-          >
-            <div
-              className="u-split-title-line"
-              style={{
-                display: "block",
-                position: "relative",
-                transform: "translate(0px, 0px)",
-                opacity: 1,
-                visibility: "inherit",
-              }}
-            >
-              About Us
-            </div>
-          </div>
-          <div
-            className="c-home-slider-item__content u-b2 js-onboarding-text"
-            style={{}}
-          >
-            <div
-              className="u-split-text-line"
-              style={{
-                display: "block",
-                position: "relative",
-                transform: "translate(0px, 0px)",
-                opacity: 1,
-                visibility: "inherit",
-              }}
-            >
-              We challenge convention and push technology to the edge of
-              possibility. Welcome to Rimac. This is our story.
-            </div>
-          </div>
-          <a
-            className="c-home-slider-item__link c-button c-button--light"
-            href="https://www.rimac-automobili.com/about-us/"
-            target=""
+            className="c-home-slider-item__inner"
+            data-swiper-parallax-opacity="-1"
             style={{
-              transform: "translate(0px, 0px)",
+              transitionDuration: "0ms",
               opacity: 1,
-              visibility: "inherit",
+              transform: "translate3d(0px, 0px, 0px)",
             }}
           >
-            <span className="c-button__inner">
-              <span className="c-button__label">
-                <i className="c-button__label-inner" title="Explore">
-                  Explore
-                </i>
+            <div
+              className="c-home-slider-item__title u-a4 u-uppercase js-onboarding-title"
+              style={{}}
+            >
+              <div
+                className="u-split-title-line"
+                style={{
+                  display: "block",
+                  position: "relative",
+                  transform: "translate(0px, 0px)",
+                  opacity: 1,
+                  visibility: "inherit",
+                }}
+              >
+                About Us
+              </div>
+            </div>
+            <div
+              className="c-home-slider-item__content u-b2 js-onboarding-text"
+              style={{}}
+            >
+              <div
+                className="u-split-text-line"
+                style={{
+                  display: "block",
+                  position: "relative",
+                  transform: "translate(0px, 0px)",
+                  opacity: 1,
+                  visibility: "inherit",
+                }}
+              >
+                We challenge convention and push technology to the edge of
+                possibility. Welcome to Rimac. This is our story.
+              </div>
+            </div>
+            <a
+              className="c-home-slider-item__link c-button c-button--light"
+              href="https://www.rimac-automobili.com/about-us/"
+              target=""
+              style={{
+                transform: "translate(0px, 0px)",
+                opacity: 1,
+                visibility: "inherit",
+              }}
+            >
+              <span className="c-button__inner">
+                <span className="c-button__label">
+                  <i className="c-button__label-inner" title="Explore">
+                    Explore
+                  </i>
+                </span>
               </span>
-            </span>
-          </a>
-        </div>
-      </SwiperSlide>
-    </Swiper>
+            </a>
+          </div>
+        </SwiperSlide>
+      </Swiper>
+
+      <SideNav activeIndex={activeIndex} goToSlide={goToSlide} />
+    </>
   );
 };
 

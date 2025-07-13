@@ -71,8 +71,73 @@ const Slider = () => {
           </video>
         </div>
       </SwiperSlide>
+
+      {/* Slide 2 */}
+
       <SwiperSlide className={"c-home-slider-item"}>
-        <div>Slide 2</div>
+        <div
+          className="c-home-slider-item__inner"
+          data-swiper-parallax-opacity="-1"
+          style={{
+            transitionDuration: "0ms",
+            opacity: 1,
+            transform: "translate3d(0px, 0px, 0px)",
+          }}
+        >
+          <div
+            className="c-home-slider-item__title u-a4 u-uppercase js-onboarding-title"
+            style={{}}
+          >
+            <div
+              className="u-split-title-line"
+              style={{
+                display: "block",
+                position: "relative",
+                transform: "translate(0px, 0px)",
+                opacity: 1,
+                visibility: "inherit",
+              }}
+            >
+              Technology
+            </div>
+          </div>
+          <div
+            className="c-home-slider-item__content u-b2 js-onboarding-text"
+            style={{}}
+          >
+            <div
+              className="u-split-text-line"
+              style={{
+                display: "block",
+                position: "relative",
+                transform: "translate(0px, 0px)",
+                opacity: 1,
+                visibility: "inherit",
+              }}
+            >
+              From bespoke component design and engineering to full series
+              production. We are the leader in high-performance EV technology.
+            </div>
+          </div>
+          <a
+            className="c-home-slider-item__link c-button c-button--light"
+            href="https://www.rimac-technology.com/"
+            target="_blank"
+            style={{
+              transform: "translate(0px, 0px)",
+              opacity: 1,
+              visibility: "inherit",
+            }}
+          >
+            <span className="c-button__inner">
+              <span className="c-button__label">
+                <i className="c-button__label-inner" title="Explore">
+                  Explore
+                </i>
+              </span>
+            </span>
+          </a>
+        </div>
       </SwiperSlide>
       <SwiperSlide className={"c-home-slider-item"}>
         <div>Slide 3</div>

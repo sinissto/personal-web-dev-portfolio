@@ -5,11 +5,13 @@ import ScrollIndicator from "./components/ScrollIndicator.jsx";
 import NavBar from "./components/navigation/NavBar.jsx";
 import Navigation from "./components/navigation/Navigation.jsx";
 import { useState } from "react";
+import BackgroundDynamicGradient from "./components/background/BackgroundDynamicGradient.jsx";
 
 function App() {
   const [activeSwiperIndex, setActiveSwiperIndex] = useState(0);
   return (
     <>
+      <BackgroundDynamicGradient />
       <NavBar />
       <Navigation />
       <div className={"o-page__inner o-page__inner--home"}>

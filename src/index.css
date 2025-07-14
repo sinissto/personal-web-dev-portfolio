@@ -28,10 +28,3 @@ body {
   text-rendering: optimizeSpeed;
   font-size: 1.6rem;
 }
-
-#gradient-canvas {
-  --gradient-color-1: #3d545e;
-  --gradient-color-2: #253e4a;
-  --gradient-color-3: #0d2936;
-  --gradient-color-4: #0a212b;
-}

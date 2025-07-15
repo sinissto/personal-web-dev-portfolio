@@ -1,8 +1,8 @@
 import "./NavBar.css";
 import { useState } from "react";
 
-const NavBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const NavBar = ({ isOpened, setIsOpened }) => {
+  // const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="o-navigation-wrapper js-navigation-wrapper is-light">
@@ -39,11 +39,11 @@ const NavBar = () => {
 
           <div
             className="c-navigation__right"
-            onClick={() => setIsOpen((isOpened) => !isOpened)}
+            onClick={() => setIsOpened((isOpened) => !isOpened)}
           >
             <span
               className={`c-hamburger js-navigation-trigger js-timeline-popup-close ${
-                isOpen && "is-opened"
+                isOpened && "is-opened"
               }`}
               aria-label="Menu"
               aria-controls="navigation"

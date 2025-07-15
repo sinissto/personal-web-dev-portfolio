@@ -1,11 +1,14 @@
 import "./Navigation.css";
 
-const Navigation = () => {
+const Navigation = ({ isOpened }) => {
   return (
-    <nav id="navigation" className="c-navigation-menu-wrapper">
+    <nav
+      id="navigation"
+      className={`c-navigation-menu-wrapper ${isOpened ? "navOpened" : ""}`}
+    >
       <div
-        className="c-navigation-menu js-navigation-menu"
-        style={{ opacity: 1, visibility: "inherit" }}
+        className={`c-navigation-menu js-navigation-menu `}
+        // style={{ opacity: 1, visibility: "inherit" }}
       >
         <i className="c-navigation-menu__bg js-navigation-bg-gradient is-loaded c-navigation-bg-gradient">
           <canvas

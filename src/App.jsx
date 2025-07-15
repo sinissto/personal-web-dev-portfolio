@@ -1,6 +1,6 @@
 import "./App.css";
 import Slider from "./components/Slider.jsx";
-import SideNav from "./components/SideNav.jsx";
+
 import ScrollIndicator from "./components/ScrollIndicator.jsx";
 import NavBar from "./components/navigation/NavBar.jsx";
 import Navigation from "./components/navigation/Navigation.jsx";
@@ -9,11 +9,13 @@ import BackgroundDynamicGradient from "./components/background/BackgroundDynamic
 
 function App() {
   const [activeSwiperIndex, setActiveSwiperIndex] = useState(0);
+  const [isOpened, setIsOpened] = useState(false);
+
   return (
     <>
       <BackgroundDynamicGradient />
-      <NavBar />
-      <Navigation />
+      <NavBar isOpened={isOpened} setIsOpened={setIsOpened} />
+      <Navigation isOpened={isOpened} />
       <div className={"o-page__inner o-page__inner--home"}>
         <section className={"o-section c-homepage-slider"}>
           <div className={"c-homepage-slider__inner"}>

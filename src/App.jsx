@@ -8,7 +8,6 @@ import { useState } from "react";
 import BackgroundDynamicGradient from "./components/background/BackgroundDynamicGradient.jsx";
 
 function App() {
-  const [activeSwiperIndex, setActiveSwiperIndex] = useState(0);
   const [isOpened, setIsOpened] = useState(false);
 
   return (
@@ -20,10 +19,7 @@ function App() {
         <section className={"o-section c-homepage-slider"}>
           <div className={"c-homepage-slider__inner"}>
             <div className="o-container">
-              <Slider
-                activeIndex={activeSwiperIndex}
-                setActiveIndex={setActiveSwiperIndex}
-              />
+              <Slider />
             </div>
           </div>
 

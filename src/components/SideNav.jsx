@@ -1,6 +1,7 @@
 import "./SideNav.css";
 
 const SideNav = ({ activeIndex, goToSlide }) => {
+  // console.log("SideNav activeIndex:", activeIndex);
   return (
     <div className={"c-homepage-slider__pagination"}>
       <i className={"c-homepage-slider__pagination-progress"}>

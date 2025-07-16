@@ -10,34 +10,49 @@ import "./Slider.css";
 import { useRef, useState } from "react";
 import SideNav from "./SideNav.jsx";
 
-const Slider = ({ activeIndex, setActiveIndex }) => {
-  console.log("Slider activeIndex:", activeIndex);
+const Slider = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // console.log("Slider activeIndex:", activeIndex);
 
   const swiperRef = useRef(null);
-  const [rotationCount, setRotationCount] = useState(0);
   const prevRealIndex = useRef(0);
+  const [rotationCount, setRotationCount] = useState(0);
 
   const goToSlide = (index) => {
+    // console.log("Going to slide:", index);
+    // console.log("Swiper realIndex:", swiperRef.current.swiper.activeIndex);
+    // swiperRef.current.swiper.realIndex = index;
+    // swiperRef.current.swiper.activeIndex = swiperRef.current.swiper.realIndex;
+
+    // console.log(
+    //   "Swiper realIndex after setting:",
+    //   swiperRef.current.swiper.activeIndex
+    // );
+
     if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slideTo(index);
+      swiperRef.current.swiper.slideToLoop(index);
+      setActiveIndex(index);
     }
   };
 
   const handleSlideChange = (swiper) => {
     const current = swiper.realIndex;
     const previous = prevRealIndex.current;
-    console.log("Slide changed from", previous, "to", current);
+
+    // console.log("Slide changed from", previous, "to", current);
+    // console.log("Swiper in handleSlideChange:", swiper);
 
     // Detect loop from last slide to first slide
-    if (previous === 2 && current === 0) {
-      console.log("Completed a full rotation, resetting...");
-      setRotationCount((count) => count + 1);
-
-      // Optionally: do something, like resetting a timer or animation
-    }
+    // if (previous === 2 && current === 0) {
+    //   console.log("Completed a full rotation, resetting...");
+    //   setRotationCount((count) => count + 1);
+    //
+    //   // Optionally: do something, like resetting a timer or animation
+    // }
 
     prevRealIndex.current = current;
-    setActiveIndex(prevRealIndex.current);
+    setActiveIndex(current);
   };
 
   return (
@@ -52,7 +67,7 @@ const Slider = ({ activeIndex, setActiveIndex }) => {
         // spaceBetween={30}
         slidesPerView={1}
         // navigation={true}
-        pagination={false}
+        pagination={{ clickable: true }}
         onSlideChange={(swiper) => {
           handleSlideChange(swiper);
         }}

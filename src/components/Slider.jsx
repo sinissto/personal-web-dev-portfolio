@@ -59,7 +59,7 @@ const Slider = () => {
     <>
       <Swiper
         ref={swiperRef}
-        modules={[Mousewheel, Pagination]}
+        modules={[Mousewheel]}
         direction={"vertical"}
         loop={true}
         freeMode={true}
@@ -67,7 +67,7 @@ const Slider = () => {
         // spaceBetween={30}
         slidesPerView={1}
         // navigation={true}
-        pagination={{ clickable: true }}
+        // pagination={{ clickable: true }}
         onSlideChange={(swiper) => {
           handleSlideChange(swiper);
         }}

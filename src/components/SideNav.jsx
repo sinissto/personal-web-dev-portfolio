@@ -5,7 +5,12 @@ const SideNav = ({ activeIndex, goToSlide }) => {
   return (
     <div className={"c-homepage-slider__pagination"}>
       <i className={"c-homepage-slider__pagination-progress"}>
-        <span className={"c-homepage-slider__pagination-progress-line"}></span>
+        <span
+          className={`c-homepage-slider__pagination-progress-line`}
+          style={{
+            transform: `translateY(${activeIndex * 25}px)`,
+          }}
+        ></span>
       </i>
 
       <div className="u-b3 u-fw-semi-bold u-uppercase">

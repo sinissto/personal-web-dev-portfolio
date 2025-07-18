@@ -390,6 +390,71 @@ const Slider = () => {
               </span>
             </a>
           </div>
+
+          <div
+            className="c-home-slider-item__content u-b2 js-onboarding-text"
+            style=""
+          >
+            <div
+              className="u-split-text-line"
+              style="display: block; position: relative; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+            >
+              We challenge convention and push technology to the edge of
+              possibility. Welcome to Rimac. This is our story.
+            </div>
+          </div>
+
+          <div
+            className="c-home-slider-item swiper-slide swiper-slide-duplicate swiper-slide-next"
+            data-swiper-slide-index="0"
+            style="height: 865px;"
+          >
+            <div
+              className="c-home-slider-item__inner"
+              data-swiper-parallax-opacity="-1"
+              style="transition-duration: 0ms; opacity: -1; transform: translate3d(0px, 0px, 0px);"
+            >
+              <div
+                className="c-home-slider-item__title u-a4 u-uppercase js-onboarding-title"
+                style=""
+              >
+                <div
+                  className="u-split-title-line"
+                  style="display: block; position: relative; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+                >
+                  Nevera and Nevera R
+                </div>
+              </div>
+              <div
+                className="c-home-slider-item__content u-b2 js-onboarding-text"
+                style=""
+              >
+                <div
+                  className="u-split-text-line"
+                  style="display: block; position: relative; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+                >
+                  Capable of exceptional speeds, swift and powerful beyond
+                  comprehension, Nevera is a force like no other. Designed,
+                  engineered and handcrafted in Croatia, defined by function and
+                  forged from a love for automotive.
+                </div>
+              </div>
+              <a
+                className="c-home-slider-item__link c-button c-button--light"
+                href="https://www.rimac-automobili.com/nevera/"
+                target=""
+                style="transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+              >
+                <span className="c-button__inner">
+                  <span className="c-button__label">
+                    <i className="c-button__label-inner" title="Discover">
+                      Discover
+                    </i>
+                  </span>
+                </span>
+              </a>
+            </div>
+          </div>
         </SwiperSlide>
       </Swiper>
 

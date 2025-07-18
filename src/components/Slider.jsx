@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Mousewheel, Pagination } from "swiper/modules";
+import { Mousewheel } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 
@@ -17,7 +17,7 @@ const Slider = () => {
 
   const swiperRef = useRef(null);
   const prevRealIndex = useRef(0);
-  const [rotationCount, setRotationCount] = useState(0);
+  // const [rotationCount, setRotationCount] = useState(0);
 
   const goToSlide = (index) => {
     // console.log("Going to slide:", index);
@@ -38,7 +38,7 @@ const Slider = () => {
 
   const handleSlideChange = (swiper) => {
     const current = swiper.realIndex;
-    const previous = prevRealIndex.current;
+    // const previous = prevRealIndex.current;
 
     // console.log("Slide changed from", previous, "to", current);
     // console.log("Swiper in handleSlideChange:", swiper);
@@ -79,6 +79,7 @@ const Slider = () => {
           }
         }}
       >
+        {/* Slide 1 */}
         <SwiperSlide className={"c-home-slider-item"}>
           <div className={"c-home-slider-item__inner"}>
             <div className={"c-home-slider-item__title u-a4 u-uppercase"}>
@@ -110,8 +111,12 @@ const Slider = () => {
           </div>
           {/*<div*/}
           {/*  className="c-homepage-slider__video-wrapper-overlay"*/}
-          {/*  data-swiper-parallax-opacity="-1"*/}
-          {/*  style="transition-duration: 0ms; opacity: 1; transform: translate3d(0px, 0px, 0px);"*/}
+          {/*  // data-swiper-parallax-opacity="-1"*/}
+          {/*  style={{*/}
+          {/*    transitionDuration: "0ms",*/}
+          {/*    opacity: 1,*/}
+          {/*    transform: "translate3d(0px, 0px, 0px)",*/}
+          {/*  }}*/}
           {/*></div>*/}
           <div className="c-homepage-slider__video-wrapper">
             <video
@@ -196,6 +201,33 @@ const Slider = () => {
                 </span>
               </span>
             </a>
+          </div>
+
+          <div
+            className="c-homepage-slider__video-wrapper-overlay"
+            data-swiper-parallax-opacity="-1"
+            style={{
+              transitionDuration: "0ms",
+              opacity: 1,
+              transform: "translate3d(0px, 0px, 0px)",
+            }}
+          ></div>
+
+          <div className="c-homepage-slider__video-wrapper">
+            <video
+              data-index="2"
+              crossOrigin="anonymous"
+              loop=""
+              playsInline="true"
+              preload="metadata"
+              poster="https://web-cdn.rimac-automobili.com/wp-content/uploads/2020/10/27140649/poster_03_optimized.jpg"
+              className="js-home-slider-video c-homepage-slider__video"
+            >
+              <source
+                type="video/mp4"
+                src="https://web-cdn.rimac-automobili.com/wp-content/uploads/2020/10/27140751/Development_cc.mp4"
+              />
+            </video>
           </div>
         </SwiperSlide>
 

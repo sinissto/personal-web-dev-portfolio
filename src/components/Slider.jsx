@@ -218,7 +218,7 @@ const Slider = () => {
               data-index="2"
               crossOrigin="anonymous"
               loop=""
-              playsInline="true"
+              playsInline={true}
               preload="metadata"
               poster="https://web-cdn.rimac-automobili.com/wp-content/uploads/2020/10/27140649/poster_03_optimized.jpg"
               className="js-home-slider-video c-homepage-slider__video"
@@ -295,6 +295,33 @@ const Slider = () => {
                 </span>
               </span>
             </a>
+          </div>
+
+          <div
+            className="c-homepage-slider__video-wrapper-overlay"
+            data-swiper-parallax-opacity="-1"
+            style={{
+              transitionDuration: "0ms",
+              opacity: 1,
+              transform: "translate3d(0px, 0px, 0px)",
+            }}
+          ></div>
+
+          <div className="c-homepage-slider__video-wrapper">
+            <video
+              data-index="3"
+              crossOrigin="anonymous"
+              loop=""
+              playsInline={true}
+              preload="metadata"
+              poster="https://web-cdn.rimac-automobili.com/wp-content/uploads/2020/10/30151445/About_Us_poster.jpg"
+              className="js-home-slider-video c-homepage-slider__video"
+            >
+              <source
+                type="video/mp4"
+                src="https://web-cdn.rimac-automobili.com/wp-content/uploads/2020/10/30151443/About_Us_optimized.mp4"
+              />
+            </video>
           </div>
         </SwiperSlide>
 

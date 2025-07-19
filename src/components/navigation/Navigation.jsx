@@ -1,6 +1,30 @@
 import "./Navigation.css";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const Navigation = ({ isOpened }) => {
+  useGSAP(
+    () => {
+      if (isOpened) {
+        gsap.fromTo(
+          ".c-big-menu__item, .c-menu__item",
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.4,
+            stagger: 0.1,
+            ease: "power2.out",
+          }
+        );
+      } else {
+        gsap.set(".c-big-menu__item", { y: 40, opacity: 0 });
+        gsap.set(".c-menu__item", { y: 40, opacity: 0 });
+      }
+    },
+    { dependencies: [isOpened] }
+  );
+
   return (
     <nav
       id="navigation"

@@ -82,6 +82,15 @@
   visibility: hidden;
 }
 
+.c-menu-images__item.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1.1);
+  pointer-events: auto;
+  transition: all 0.5s ease-in;
+  z-index: 1;
+}
+
 .c-menu-images__item:after {
   content: "";
   display: block;
@@ -154,6 +163,11 @@ ul {
   padding-right: 10px;
 }
 
+.c-big-link:hover .c-big-link__prepend {
+  padding-right: 0;
+  padding-left: 10px;
+}
+
 .u-b3 {
   font-size: 13px;
   line-height: 15px;
@@ -166,6 +180,10 @@ ul {
   position: relative;
   transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   overflow: hidden;
+}
+
+.c-big-link:hover .c-big-link__label {
+  transform: translateX(-5px);
 }
 
 .u-a3,

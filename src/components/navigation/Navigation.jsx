@@ -1,8 +1,11 @@
 import "./Navigation.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useState } from "react";
 
 const Navigation = ({ isOpened }) => {
+  const [hoverIndex, setHoverIndex] = useState(null);
+
   useGSAP(
     () => {
       if (isOpened) {
@@ -41,31 +44,41 @@ const Navigation = ({ isOpened }) => {
             height="600"
           ></canvas>
         </i>
+
+        {/* IMAGES ON HOVER */}
         <div className="c-navigation-menu__images">
           <ul className="c-menu-images js-menu-images">
             <li
-              className="c-menu-images__item"
+              className={`c-menu-images__item ${
+                hoverIndex === 0 ? "is-active" : ""
+              }`}
               style={{
                 backgroundImage:
                   "url(https://web-cdn.rimac-automobili.com/wp-content/uploads/2021/06/08192727/menu-nevera_opt.jpg)",
               }}
             ></li>
             <li
-              className="c-menu-images__item"
+              className={`c-menu-images__item ${
+                hoverIndex === 1 ? "is-active" : ""
+              }`}
               style={{
                 backgroundImage:
                   "url(https://web-cdn.rimac-automobili.com/wp-content/uploads/2021/06/08192723/menu-development_opt.jpg)",
               }}
             ></li>
             <li
-              className="c-menu-images__item"
+              className={`c-menu-images__item ${
+                hoverIndex === 2 ? "is-active" : ""
+              }`}
               style={{
                 backgroundImage:
                   "url(https://web-cdn.rimac-automobili.com/wp-content/uploads/2020/08/01075847/Technology-min.jpg)",
               }}
             ></li>
             <li
-              className="c-menu-images__item"
+              className={`c-menu-images__item ${
+                hoverIndex === 3 ? "is-active" : ""
+              }`}
               style={{
                 backgroundImage:
                   "url(https://web-cdn.rimac-automobili.com/wp-content/uploads/2021/06/08192720/menu-about-us_opt.jpg)",
@@ -73,6 +86,8 @@ const Navigation = ({ isOpened }) => {
             ></li>
           </ul>
         </div>
+
+        {/* MENU */}
         <div className="o-container o-container--wide">
           <div className="c-navigation-menu__menu js-context-shifting-menu">
             <ul className="c-big-menu js-menu-primary">
@@ -81,6 +96,8 @@ const Navigation = ({ isOpened }) => {
                   href="https://www.rimac-automobili.com/nevera/"
                   target=""
                   className="c-big-link u-uppercase js-context-shifting-menu-link"
+                  onMouseEnter={() => setHoverIndex(0)}
+                  onMouseLeave={() => setHoverIndex(null)}
                 >
                   <span className="c-big-link__prepend u-b3">01</span>
                   <span
@@ -96,6 +113,8 @@ const Navigation = ({ isOpened }) => {
                   href="/development"
                   target=""
                   className="c-big-link u-uppercase js-context-shifting-menu-link"
+                  onMouseEnter={() => setHoverIndex(1)}
+                  onMouseLeave={() => setHoverIndex(null)}
                 >
                   <span className="c-big-link__prepend u-b3">02</span>
                   <span
@@ -111,6 +130,8 @@ const Navigation = ({ isOpened }) => {
                   href="https://www.rimac-technology.com/"
                   target="_blank"
                   className="c-big-link u-uppercase js-context-shifting-menu-link"
+                  onMouseEnter={() => setHoverIndex(2)}
+                  onMouseLeave={() => setHoverIndex(null)}
                 >
                   <span className="c-big-link__prepend u-b3">03</span>
                   <span
@@ -126,6 +147,8 @@ const Navigation = ({ isOpened }) => {
                   href="https://www.rimac-automobili.com/about-us/"
                   target=""
                   className="c-big-link u-uppercase js-context-shifting-menu-link"
+                  onMouseEnter={() => setHoverIndex(3)}
+                  onMouseLeave={() => setHoverIndex(null)}
                 >
                   <span className="c-big-link__prepend u-b3">04</span>
                   <span

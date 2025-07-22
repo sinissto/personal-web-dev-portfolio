@@ -1,14 +1,20 @@
 import "./App.css";
 import Slider from "./components/Slider.jsx";
-
 import ScrollIndicator from "./components/ScrollIndicator.jsx";
 import NavBar from "./components/navigation/NavBar.jsx";
 import Navigation from "./components/navigation/Navigation.jsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BackgroundDynamicGradient from "./components/background/BackgroundDynamicGradient.jsx";
+// import gradient from "./scripts/Gradient.js";
 
 function App() {
   const [isOpened, setIsOpened] = useState(false);
+
+  // useEffect(() => {
+  //   gradient.initGradient("#gradient-canvas");
+  //   gradient.pozicija = "App";
+  //   console.log(gradient);
+  // }, []);
 
   return (
     <>

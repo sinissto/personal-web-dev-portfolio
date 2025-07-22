@@ -635,7 +635,7 @@ class Gradient {
           this.scrollObserver.observe(this.el),
           this.scrollObserver.onSeparate(() => {
               window.removeEventListener("scroll", this.handleScroll), window.removeEventListener("mousedown", this.handleMouseDown), window.removeEventListener("mouseup", this.handleMouseUp), window.removeEventListener("keydown", this.handleKeyDown), this.isIntersecting = !1, this.conf.playing && this.pause()
-          }), 
+          }),
           this.scrollObserver.onIntersect(() => {
               window.addEventListener("scroll", this.handleScroll), window.addEventListener("mousedown", this.handleMouseDown), window.addEventListener("mouseup", this.handleMouseUp), window.addEventListener("keydown", this.handleKeyDown), this.isIntersecting = !0, this.addIsLoadedClass(), this.play()
           })*/
@@ -855,7 +855,8 @@ class Gradient {
   }
 }
 
-export default new Gradient();
+// export default new Gradient();  // Original line
+export default Gradient; // Exporting the Gradient class, ja dodao kako bih kreirao individualan objekat gde mi treba
 
 /*
  *Finally initializing the Gradient class, assigning a canvas to it and calling Gradient.connect() which initializes everything,

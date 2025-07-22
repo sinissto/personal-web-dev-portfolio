@@ -1,7 +1,12 @@
 import "./Navigation.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import BackgroundDynamicGradient from "../background/BackgroundDynamicGradient.jsx";
+// import gradient2 from "../../scripts/Gradient.js";
+import Gradient from "../../scripts/Gradient.js";
+
+const gradient = new Gradient();
 
 const Navigation = ({ isOpened }) => {
   const [hoverIndex, setHoverIndex] = useState(null);
@@ -28,22 +33,46 @@ const Navigation = ({ isOpened }) => {
     { dependencies: [isOpened] }
   );
 
+  useEffect(() => {
+    gradient.initGradient("#c-navigation-bg-gradient");
+    gradient.pozicija = "Navigation";
+    console.log(gradient);
+  }, []);
+
   return (
     <nav
       id="navigation"
       className={`c-navigation-menu-wrapper ${isOpened ? "navOpened" : ""}`}
+      // style={{ position: "relative" }} // Ensure stacking context
     >
       <div
-        className={`c-navigation-menu js-navigation-menu `}
-        // style={{ opacity: 1, visibility: "inherit" }}
+        className={`c-navigation-menu js-navigation-menu ${
+          isOpened ? "navOpened" : ""
+        }`}
+        // style={{ position: "relative", zIndex: 1 }} // Menu content above background
       >
+        {/*Background as absolute, behind menu */}
         <i className="c-navigation-menu__bg js-navigation-bg-gradient is-loaded c-navigation-bg-gradient">
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              zIndex: -1,
+              backgroundColor: "red", // Ensure it stays behind the menu
+            }}
+          ></div>
           <canvas
+            id={"c-navigation-bg-gradient"}
             className="is-loaded c-navigation-bg-gradient"
             width="1680"
             height="600"
           ></canvas>
         </i>
+
+        {/*<BackgroundDynamicGradient />*/}
 
         {/* IMAGES ON HOVER */}
         <div className="c-navigation-menu__images">

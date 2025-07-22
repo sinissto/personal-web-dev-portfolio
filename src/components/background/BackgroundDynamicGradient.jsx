@@ -7,7 +7,6 @@ const gradient = new Gradient();
 const BackgroundDynamicGradient = () => {
   useEffect(() => {
     gradient.initGradient("#gradient-canvas");
-    console.log(gradient);
   }, []);
 
   return (

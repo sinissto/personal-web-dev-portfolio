@@ -2,8 +2,7 @@ import "./Navigation.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useEffect, useState } from "react";
-import BackgroundDynamicGradient from "../background/BackgroundDynamicGradient.jsx";
-// import gradient2 from "../../scripts/Gradient.js";
+
 import Gradient from "../../scripts/Gradient.js";
 
 const gradient = new Gradient();
@@ -36,7 +35,6 @@ const Navigation = ({ isOpened }) => {
   useEffect(() => {
     gradient.initGradient("#c-navigation-bg-gradient");
     gradient.pozicija = "Navigation";
-    console.log(gradient);
   }, []);
 
   return (
@@ -60,8 +58,7 @@ const Navigation = ({ isOpened }) => {
               left: 0,
               width: "100%",
               height: "100%",
-              zIndex: -1,
-              backgroundColor: "red", // Ensure it stays behind the menu
+              zIndex: -1, // Ensure it stays behind the menu
             }}
           ></div>
           <canvas
@@ -71,8 +68,6 @@ const Navigation = ({ isOpened }) => {
             height="600"
           ></canvas>
         </i>
-
-        {/*<BackgroundDynamicGradient />*/}
 
         {/* IMAGES ON HOVER */}
         <div className="c-navigation-menu__images">

@@ -122,7 +122,8 @@ const Navigation = ({ isOpened }) => {
                   href="https://www.rimac-automobili.com/nevera/"
                   target=""
                   className={`c-big-link ${
-                    hoveredBigIdx !== null && hoveredBigIdx !== 0
+                    (hoveredBigIdx !== null && hoveredBigIdx !== 0) ||
+                    hoveredMenuIdx !== null
                       ? "is-faded"
                       : ""
                   } u-uppercase js-context-shifting-menu-link`}
@@ -149,7 +150,8 @@ const Navigation = ({ isOpened }) => {
                   href="/development"
                   target=""
                   className={`c-big-link ${
-                    hoveredBigIdx !== null && hoveredBigIdx !== 1
+                    (hoveredBigIdx !== null && hoveredBigIdx !== 1) ||
+                    hoveredMenuIdx !== null
                       ? "is-faded"
                       : ""
                   } u-uppercase js-context-shifting-menu-link`}
@@ -176,7 +178,8 @@ const Navigation = ({ isOpened }) => {
                   href="https://www.rimac-technology.com/"
                   target="_blank"
                   className={`c-big-link ${
-                    hoveredBigIdx !== null && hoveredBigIdx !== 2
+                    (hoveredBigIdx !== null && hoveredBigIdx !== 2) ||
+                    hoveredMenuIdx !== null
                       ? "is-faded"
                       : ""
                   } u-uppercase js-context-shifting-menu-link`}
@@ -203,7 +206,8 @@ const Navigation = ({ isOpened }) => {
                   href="https://www.rimac-automobili.com/about-us/"
                   target=""
                   className={`c-big-link ${
-                    hoveredBigIdx !== null && hoveredBigIdx !== 3
+                    (hoveredBigIdx !== null && hoveredBigIdx !== 3) ||
+                    hoveredMenuIdx !== null
                       ? "is-faded"
                       : ""
                   } u-uppercase js-context-shifting-menu-link`}
@@ -240,7 +244,8 @@ const Navigation = ({ isOpened }) => {
                   href="https://www.rimac-group.com/careers"
                   target="_blank"
                   className={`c-link ${
-                    hoveredMenuIdx !== null && hoveredMenuIdx !== 0
+                    (hoveredMenuIdx !== null && hoveredMenuIdx !== 0) ||
+                    hoveredBigIdx !== null
                       ? " is-faded"
                       : ""
                   } u-uppercase js-context-shifting-menu-link`}
@@ -277,7 +282,8 @@ const Navigation = ({ isOpened }) => {
                   href="https://www.rimac-automobili.com/factory-tours/"
                   target=""
                   className={`c-link ${
-                    hoveredMenuIdx !== null && hoveredMenuIdx !== 1
+                    (hoveredMenuIdx !== null && hoveredMenuIdx !== 1) ||
+                    hoveredBigIdx !== null
                       ? " is-faded"
                       : ""
                   } u-uppercase js-context-shifting-menu-link`}
@@ -299,7 +305,8 @@ const Navigation = ({ isOpened }) => {
                   href="https://campus.rimac-automobili.com"
                   target="_blank"
                   className={`c-link ${
-                    hoveredMenuIdx !== null && hoveredMenuIdx !== 2
+                    (hoveredMenuIdx !== null && hoveredMenuIdx !== 2) ||
+                    hoveredBigIdx !== null
                       ? " is-faded"
                       : ""
                   } u-uppercase js-context-shifting-menu-link`}
@@ -336,7 +343,8 @@ const Navigation = ({ isOpened }) => {
                   href="https://estore.rimac-automobili.com/"
                   target="_blank"
                   className={`c-link ${
-                    hoveredMenuIdx !== null && hoveredMenuIdx !== 3
+                    (hoveredMenuIdx !== null && hoveredMenuIdx !== 3) ||
+                    hoveredBigIdx !== null
                       ? " is-faded"
                       : ""
                   } u-uppercase js-context-shifting-menu-link`}
@@ -373,7 +381,8 @@ const Navigation = ({ isOpened }) => {
                   href="https://www.rimac-newsroom.com/"
                   target="_blank"
                   className={`c-link ${
-                    hoveredMenuIdx !== null && hoveredMenuIdx !== 4
+                    (hoveredMenuIdx !== null && hoveredMenuIdx !== 4) ||
+                    hoveredBigIdx !== null
                       ? " is-faded"
                       : ""
                   } u-uppercase js-context-shifting-menu-link`}
@@ -410,7 +419,8 @@ const Navigation = ({ isOpened }) => {
                   href="https://www.rimac-automobili.com/retailer-map/"
                   target=""
                   className={`c-link ${
-                    hoveredMenuIdx !== null && hoveredMenuIdx !== 5
+                    (hoveredMenuIdx !== null && hoveredMenuIdx !== 5) ||
+                    hoveredBigIdx !== null
                       ? " is-faded"
                       : ""
                   } u-uppercase js-context-shifting-menu-link`}
@@ -432,7 +442,8 @@ const Navigation = ({ isOpened }) => {
                   href="https://www.rimac-automobili.com/contact-us/"
                   target=""
                   className={`c-link ${
-                    hoveredMenuIdx !== null && hoveredMenuIdx !== 6
+                    (hoveredMenuIdx !== null && hoveredMenuIdx !== 6) ||
+                    hoveredBigIdx !== null
                       ? " is-faded"
                       : ""
                   } u-uppercase js-context-shifting-menu-link`}

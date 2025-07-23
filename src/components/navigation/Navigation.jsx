@@ -9,6 +9,8 @@ const gradient = new Gradient();
 
 const Navigation = ({ isOpened }) => {
   const [hoverIndex, setHoverIndex] = useState(null);
+  const [hoveredBigIdx, setHoveredBigIdx] = useState(null);
+  const [hoveredMenuIdx, setHoveredMenuIdx] = useState(null);
 
   useGSAP(
     () => {
@@ -115,13 +117,23 @@ const Navigation = ({ isOpened }) => {
         <div className="o-container o-container--wide">
           <div className="c-navigation-menu__menu js-context-shifting-menu">
             <ul className="c-big-menu js-menu-primary">
-              <li className="c-big-menu__item" style={{}}>
+              <li className={`c-big-menu__item `} style={{}}>
                 <a
                   href="https://www.rimac-automobili.com/nevera/"
                   target=""
-                  className="c-big-link u-uppercase js-context-shifting-menu-link"
-                  onMouseEnter={() => setHoverIndex(0)}
-                  onMouseLeave={() => setHoverIndex(null)}
+                  className={`c-big-link ${
+                    hoveredBigIdx !== null && hoveredBigIdx !== 0
+                      ? "is-faded"
+                      : ""
+                  } u-uppercase js-context-shifting-menu-link`}
+                  onMouseEnter={() => {
+                    setHoverIndex(0);
+                    setHoveredBigIdx(0);
+                  }}
+                  onMouseLeave={() => {
+                    setHoverIndex(null);
+                    setHoveredBigIdx(null);
+                  }}
                 >
                   <span className="c-big-link__prepend u-b3">01</span>
                   <span
@@ -136,9 +148,19 @@ const Navigation = ({ isOpened }) => {
                 <a
                   href="/development"
                   target=""
-                  className="c-big-link u-uppercase js-context-shifting-menu-link"
-                  onMouseEnter={() => setHoverIndex(1)}
-                  onMouseLeave={() => setHoverIndex(null)}
+                  className={`c-big-link ${
+                    hoveredBigIdx !== null && hoveredBigIdx !== 1
+                      ? "is-faded"
+                      : ""
+                  } u-uppercase js-context-shifting-menu-link`}
+                  onMouseEnter={() => {
+                    setHoverIndex(1);
+                    setHoveredBigIdx(1);
+                  }}
+                  onMouseLeave={() => {
+                    setHoverIndex(null);
+                    setHoveredBigIdx(null);
+                  }}
                 >
                   <span className="c-big-link__prepend u-b3">02</span>
                   <span
@@ -153,9 +175,19 @@ const Navigation = ({ isOpened }) => {
                 <a
                   href="https://www.rimac-technology.com/"
                   target="_blank"
-                  className="c-big-link u-uppercase js-context-shifting-menu-link"
-                  onMouseEnter={() => setHoverIndex(2)}
-                  onMouseLeave={() => setHoverIndex(null)}
+                  className={`c-big-link ${
+                    hoveredBigIdx !== null && hoveredBigIdx !== 2
+                      ? "is-faded"
+                      : ""
+                  } u-uppercase js-context-shifting-menu-link`}
+                  onMouseEnter={() => {
+                    setHoverIndex(2);
+                    setHoveredBigIdx(2);
+                  }}
+                  onMouseLeave={() => {
+                    setHoverIndex(null);
+                    setHoveredBigIdx(null);
+                  }}
                 >
                   <span className="c-big-link__prepend u-b3">03</span>
                   <span
@@ -170,9 +202,19 @@ const Navigation = ({ isOpened }) => {
                 <a
                   href="https://www.rimac-automobili.com/about-us/"
                   target=""
-                  className="c-big-link u-uppercase js-context-shifting-menu-link"
-                  onMouseEnter={() => setHoverIndex(3)}
-                  onMouseLeave={() => setHoverIndex(null)}
+                  className={`c-big-link ${
+                    hoveredBigIdx !== null && hoveredBigIdx !== 3
+                      ? "is-faded"
+                      : ""
+                  } u-uppercase js-context-shifting-menu-link`}
+                  onMouseEnter={() => {
+                    setHoverIndex(3);
+                    setHoveredBigIdx(3);
+                  }}
+                  onMouseLeave={() => {
+                    setHoverIndex(null);
+                    setHoveredBigIdx(null);
+                  }}
                 >
                   <span className="c-big-link__prepend u-b3">04</span>
                   <span
@@ -197,7 +239,13 @@ const Navigation = ({ isOpened }) => {
                 <a
                   href="https://www.rimac-group.com/careers"
                   target="_blank"
-                  className="c-link u-uppercase js-context-shifting-menu-link"
+                  className={`c-link ${
+                    hoveredMenuIdx !== null && hoveredMenuIdx !== 0
+                      ? " is-faded"
+                      : ""
+                  } u-uppercase js-context-shifting-menu-link`}
+                  onMouseEnter={() => setHoveredMenuIdx(0)}
+                  onMouseLeave={() => setHoveredMenuIdx(null)}
                 >
                   <span className="c-link__label">Careers </span>
                   <span className="c-link__append">
@@ -228,7 +276,13 @@ const Navigation = ({ isOpened }) => {
                 <a
                   href="https://www.rimac-automobili.com/factory-tours/"
                   target=""
-                  className="c-link u-uppercase js-context-shifting-menu-link"
+                  className={`c-link ${
+                    hoveredMenuIdx !== null && hoveredMenuIdx !== 1
+                      ? " is-faded"
+                      : ""
+                  } u-uppercase js-context-shifting-menu-link`}
+                  onMouseEnter={() => setHoveredMenuIdx(1)}
+                  onMouseLeave={() => setHoveredMenuIdx(null)}
                 >
                   <span className="c-link__label">Factory tours </span>
                 </a>
@@ -244,7 +298,13 @@ const Navigation = ({ isOpened }) => {
                 <a
                   href="https://campus.rimac-automobili.com"
                   target="_blank"
-                  className="c-link u-uppercase js-context-shifting-menu-link"
+                  className={`c-link ${
+                    hoveredMenuIdx !== null && hoveredMenuIdx !== 2
+                      ? " is-faded"
+                      : ""
+                  } u-uppercase js-context-shifting-menu-link`}
+                  onMouseEnter={() => setHoveredMenuIdx(2)}
+                  onMouseLeave={() => setHoveredMenuIdx(null)}
                 >
                   <span className="c-link__label">Campus </span>
                   <span className="c-link__append">
@@ -275,7 +335,13 @@ const Navigation = ({ isOpened }) => {
                 <a
                   href="https://estore.rimac-automobili.com/"
                   target="_blank"
-                  className="c-link u-uppercase js-context-shifting-menu-link"
+                  className={`c-link ${
+                    hoveredMenuIdx !== null && hoveredMenuIdx !== 3
+                      ? " is-faded"
+                      : ""
+                  } u-uppercase js-context-shifting-menu-link`}
+                  onMouseEnter={() => setHoveredMenuIdx(3)}
+                  onMouseLeave={() => setHoveredMenuIdx(null)}
                 >
                   <span className="c-link__label">e_Store </span>
                   <span className="c-link__append">
@@ -306,7 +372,13 @@ const Navigation = ({ isOpened }) => {
                 <a
                   href="https://www.rimac-newsroom.com/"
                   target="_blank"
-                  className="c-link u-uppercase js-context-shifting-menu-link"
+                  className={`c-link ${
+                    hoveredMenuIdx !== null && hoveredMenuIdx !== 4
+                      ? " is-faded"
+                      : ""
+                  } u-uppercase js-context-shifting-menu-link`}
+                  onMouseEnter={() => setHoveredMenuIdx(4)}
+                  onMouseLeave={() => setHoveredMenuIdx(null)}
                 >
                   <span className="c-link__label">Media center </span>
                   <span className="c-link__append">
@@ -337,7 +409,13 @@ const Navigation = ({ isOpened }) => {
                 <a
                   href="https://www.rimac-automobili.com/retailer-map/"
                   target=""
-                  className="c-link u-uppercase js-context-shifting-menu-link"
+                  className={`c-link ${
+                    hoveredMenuIdx !== null && hoveredMenuIdx !== 5
+                      ? " is-faded"
+                      : ""
+                  } u-uppercase js-context-shifting-menu-link`}
+                  onMouseEnter={() => setHoveredMenuIdx(5)}
+                  onMouseLeave={() => setHoveredMenuIdx(null)}
                 >
                   <span className="c-link__label">Partners map </span>
                 </a>
@@ -353,7 +431,13 @@ const Navigation = ({ isOpened }) => {
                 <a
                   href="https://www.rimac-automobili.com/contact-us/"
                   target=""
-                  className="c-link u-uppercase js-context-shifting-menu-link"
+                  className={`c-link ${
+                    hoveredMenuIdx !== null && hoveredMenuIdx !== 6
+                      ? " is-faded"
+                      : ""
+                  } u-uppercase js-context-shifting-menu-link`}
+                  onMouseEnter={() => setHoveredMenuIdx(6)}
+                  onMouseLeave={() => setHoveredMenuIdx(null)}
                 >
                   <span className="c-link__label">Contact </span>
                 </a>

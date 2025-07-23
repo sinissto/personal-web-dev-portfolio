@@ -258,3 +258,16 @@ ul {
 .c-menu__item .c-link .u-icon {
   font-size: 1.45455em;
 }
+
+/*.c-big-menu__item.is-faded,*/
+/*.c-menu__item.is-faded {*/
+/*  opacity: 0.3;*/
+/*  transition: opacity 0.3s;*/
+/*  color: red;*/
+/*}*/
+
+.c-big-link.is-faded,
+.c-link.is-faded {
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}

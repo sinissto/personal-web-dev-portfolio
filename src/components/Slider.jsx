@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Mousewheel } from "swiper/modules";
+import { EffectFade, FreeMode, Mousewheel } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 
@@ -9,6 +9,11 @@ import "swiper/css/pagination";
 import "./Slider.css";
 import { useRef, useState } from "react";
 import SideNav from "./SideNav.jsx";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const Slider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -18,6 +23,38 @@ const Slider = () => {
   const swiperRef = useRef(null);
   const prevRealIndex = useRef(0);
   // const [rotationCount, setRotationCount] = useState(0);
+
+  useGSAP(
+    () => {
+      const swiperEl = swiperRef.current.swiper; // Get Swiper instance
+      const slides = swiperEl.slides;
+
+      slides.forEach((slide, i) => {
+        // console.log("Slide index:", i, "Slide element:", slide);
+        gsap.fromTo(
+          ".c-home-slider-item__inner",
+          {
+            opacity: 1,
+            y: -10,
+          },
+          {
+            opacity: 0.5,
+            y: -10,
+            scrollTrigger: {
+              trigger: ".c-home-slider-item__inner",
+              start: "center center",
+              end: "bottom top",
+              scrub: true,
+              markers: true,
+              toggleActions: "play none none reverse",
+              scroller: ".swiper-wrapper",
+            },
+          }
+        );
+      });
+    },
+    { scope: swiperRef } // Dependencies array
+  );
 
   const goToSlide = (index) => {
     // console.log("Going to slide:", index);
@@ -59,11 +96,12 @@ const Slider = () => {
     <>
       <Swiper
         ref={swiperRef}
-        modules={[Mousewheel]}
+        modules={[Mousewheel, EffectFade, FreeMode]}
         direction={"vertical"}
         loop={true}
-        freeMode={true}
-        mousewheel={true}
+        freeMode={false}
+        mousewheel={{ sensitivity: 1 }}
+        speed={1200}
         // spaceBetween={30}
         slidesPerView={1}
         // navigation={true}
@@ -109,15 +147,15 @@ const Slider = () => {
               </span>
             </a>
           </div>
-          {/*<div*/}
-          {/*  className="c-homepage-slider__video-wrapper-overlay"*/}
-          {/*  // data-swiper-parallax-opacity="-1"*/}
-          {/*  style={{*/}
-          {/*    transitionDuration: "0ms",*/}
-          {/*    opacity: 1,*/}
-          {/*    transform: "translate3d(0px, 0px, 0px)",*/}
-          {/*  }}*/}
-          {/*></div>*/}
+          <div
+            className="c-homepage-slider__video-wrapper-overlay"
+            // data-swiper-parallax-opacity="-1"
+            style={{
+              transitionDuration: "0ms",
+              opacity: 1,
+              transform: "translate3d(0px, 0px, 0px)",
+            }}
+          ></div>
           <div className="c-homepage-slider__video-wrapper">
             <video
               data-index="1"

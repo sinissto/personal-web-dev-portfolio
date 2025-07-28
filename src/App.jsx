@@ -14,20 +14,29 @@ function App() {
       <BackgroundDynamicGradient />
       <NavBar isOpened={isOpened} setIsOpened={setIsOpened} />
       <Navigation isOpened={isOpened} />
-      <div className={"o-page__inner o-page__inner--home"}>
-        <section className={"o-section c-homepage-slider"}>
-          <div className={"c-homepage-slider__inner"}>
-            <div className="o-container">
-              <Slider />
-            </div>
+      <div data-barba={"wrapper"}>
+        <div
+          id={"home"}
+          className={"o-page o-page--home"}
+          data-barba={"container"}
+          data-barba-namespace={"homepage"}
+        >
+          <div className={"o-page__inner o-page__inner--home"}>
+            <section className={"o-section c-homepage-slider"}>
+              <div className={"c-homepage-slider__inner"}>
+                <div className="o-container">
+                  <Slider />
+                </div>
+              </div>
+
+              {/*<div className="c-homepage-slider__canvas">*/}
+              {/*  CANVAS WITH VIDEO ELEMENT THAT ROTATE LIKE CAROUSEL*/}
+              {/*</div>*/}
+
+              <ScrollIndicator />
+            </section>
           </div>
-
-          {/*<div className="c-homepage-slider__canvas">*/}
-          {/*  CANVAS WITH VIDEO ELEMENT THAT ROTATE LIKE CAROUSEL*/}
-          {/*</div>*/}
-
-          <ScrollIndicator />
-        </section>
+        </div>
       </div>
     </>
   );

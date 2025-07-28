@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, FreeMode, Mousewheel } from "swiper/modules";
+import { EffectFade, FreeMode, Mousewheel, Parallax } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 
@@ -24,37 +24,37 @@ const Slider = () => {
   const prevRealIndex = useRef(0);
   // const [rotationCount, setRotationCount] = useState(0);
 
-  useGSAP(
-    () => {
-      const swiperEl = swiperRef.current.swiper; // Get Swiper instance
-      const slides = swiperEl.slides;
-
-      slides.forEach((slide, i) => {
-        // console.log("Slide index:", i, "Slide element:", slide);
-        gsap.fromTo(
-          ".c-home-slider-item__inner",
-          {
-            opacity: 1,
-            y: -10,
-          },
-          {
-            opacity: 0.5,
-            y: -10,
-            scrollTrigger: {
-              trigger: ".c-home-slider-item__inner",
-              start: "center center",
-              end: "bottom top",
-              scrub: true,
-              markers: true,
-              toggleActions: "play none none reverse",
-              scroller: ".swiper-wrapper",
-            },
-          }
-        );
-      });
-    },
-    { scope: swiperRef } // Dependencies array
-  );
+  // useGSAP(
+  //   () => {
+  //     const swiperEl = swiperRef.current.swiper; // Get Swiper instance
+  //     const slides = swiperEl.slides;
+  //
+  //     slides.forEach((slide, i) => {
+  //       // console.log("Slide index:", i, "Slide element:", slide);
+  //       gsap.fromTo(
+  //         ".c-home-slider-item__inner",
+  //         {
+  //           opacity: 1,
+  //           y: -10,
+  //         },
+  //         {
+  //           opacity: 0.5,
+  //           y: -10,
+  //           scrollTrigger: {
+  //             trigger: ".c-home-slider-item__inner",
+  //             start: "center center",
+  //             end: "bottom top",
+  //             scrub: true,
+  //             markers: true,
+  //             toggleActions: "play none none reverse",
+  //             scroller: ".swiper-wrapper",
+  //           },
+  //         }
+  //       );
+  //     });
+  //   },
+  //   { scope: swiperRef } // Dependencies array
+  // );
 
   const goToSlide = (index) => {
     // console.log("Going to slide:", index);
@@ -96,13 +96,18 @@ const Slider = () => {
     <>
       <Swiper
         ref={swiperRef}
-        modules={[Mousewheel, EffectFade, FreeMode]}
+        modules={[Mousewheel, EffectFade, FreeMode, Parallax]}
         direction={"vertical"}
         loop={true}
-        freeMode={false}
         mousewheel={{ sensitivity: 1 }}
-        speed={1200}
+        speed={300}
+        parallax={true} // Enable parallax effect, fading slide content on in and out
         // spaceBetween={30}
+        freeMode={{
+          enabled: true, // <-- Enable free mode
+          sticky: true, // <-- Sticky effect
+          momentumBounce: false, // <-- Disable momentum bounce
+        }}
         slidesPerView={1}
         // navigation={true}
         // pagination={{ clickable: true }}
@@ -119,7 +124,10 @@ const Slider = () => {
       >
         {/* Slide 1 */}
         <SwiperSlide className={"c-home-slider-item"}>
-          <div className={"c-home-slider-item__inner"}>
+          <div
+            className={"c-home-slider-item__inner"}
+            data-swiper-parallax-opacity="-1"
+          >
             <div className={"c-home-slider-item__title u-a4 u-uppercase"}>
               <div className="u-split-title-line">Nevera and Nevera R</div>
             </div>
@@ -149,7 +157,7 @@ const Slider = () => {
           </div>
           <div
             className="c-homepage-slider__video-wrapper-overlay"
-            // data-swiper-parallax-opacity="-1"
+            data-swiper-parallax-opacity="-1"
             style={{
               transitionDuration: "0ms",
               opacity: 1,
